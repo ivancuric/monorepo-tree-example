@@ -1,0 +1,32 @@
+{
+  "name": "@example/package-b",
+  "private": true,
+  "version": "0.0.0",
+  "types": "./types/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/package-b.umd.js",
+  "module": "./dist/package-b.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/package-b.es.js",
+      "require": "./dist/package-b.umd.js"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "install": "npm run build",
+    "build:types": "tsc --build",
+    "build:vite": "vite build",
+    "build": "concurrently  npm:build:vite npm:build:types --max-processes 1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.43",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.12"
+  },
+  "dependencies": {
+    "@example/core": "*"
+  }
+}

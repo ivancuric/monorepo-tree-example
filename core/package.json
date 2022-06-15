@@ -1,0 +1,28 @@
+{
+  "name": "@example/core",
+  "private": true,
+  "version": "0.0.0",
+  "types": "./types/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/core.umd.js",
+  "module": "./dist/core.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/core.es.js",
+      "require": "./dist/core.umd.js"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "install": "npm run build",
+    "build:types": "tsc --build",
+    "build:vite": "vite build",
+    "build": "concurrently  npm:build:vite npm:build:types --max-processes 1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.3",
+    "vite": "^2.9.12"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "monorepo-tree",
+  "private": true,
+  "version": "0.0.0",
+  "engines": {
+    "npm": ">=8.10.0",
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "build": "npm run build -ws",
+    "update-project-refs": "workspaces-to-typescript-project-references"
+  },
+  "devDependencies": {
+    "@monorepo-utils/workspaces-to-typescript-project-references": "^2.8.2",
+    "concurrently": "^7.2.1",
+    "typescript": "^4.7.3"
+  },
+  "workspaces": [
+    "core",
+    "packages/*",
+    "consumer"
+  ],
+  "dependencies": {
+    "@types/node": "^17.0.43"
+  }
+}
