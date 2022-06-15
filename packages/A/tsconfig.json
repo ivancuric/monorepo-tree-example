@@ -5,6 +5,10 @@
     "declarationDir": "types",
     "rootDir": "src"
   },
-  "include": ["src"]
-  // "references": [{ "path": "../../core" }]
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../core"
+    }
+  ]
 }
